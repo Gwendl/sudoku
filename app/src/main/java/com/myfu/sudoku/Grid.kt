@@ -1,6 +1,6 @@
 package com.myfu.sudoku
 
-class Grid( private var data: Array<Array<Token>> = Array(6) { Array(5) { Token.BLANK  } }) {
+class Grid( private var data: Array<Array<Token>> = Array(9) { Array(9) { Token.BLANK  } }) {
 
     fun exportCsv(separator: String = ","): String
     {
@@ -13,10 +13,14 @@ class Grid( private var data: Array<Array<Token>> = Array(6) { Array(5) { Token.
     }
 
     companion object {
-        fun initFromCsv(separator: String = ","): Grid
+        fun fromCsv(value: String, separator: String = ","): Grid
         {
-            // implement
-            return Grid()
+            val data = value
+                .split(separator)
+                .map { s -> Token.values().first { it.value == s} }
+                .chunked(9) { it.toTypedArray() }
+                .toTypedArray()
+            return Grid(data)
         }
     }
 }
