@@ -10,7 +10,7 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <include layout="@layout/view_cell"  />
+        <include  android:id="@+id/cell1" layout="@layout/view_cell"  />
         <include layout="@layout/view_cell" />
         <include layout="@layout/view_cell" />
     </LinearLayout>

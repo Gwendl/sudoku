@@ -7,18 +7,20 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.myfu.sudoku.GridViewSudoku
-        android:layout_width="match_parent"
+    <com.myfu.sudoku.GridView
+        android:id="@+id/grid_sudoku"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1">
-    </com.myfu.sudoku.GridViewSudoku>
+    </com.myfu.sudoku.GridView>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:text="Remplir cellule vide">
+        android:text="Remplir cellule vide"
+        android:id="@+id/button">
 
     </Button>
 </LinearLayout>
