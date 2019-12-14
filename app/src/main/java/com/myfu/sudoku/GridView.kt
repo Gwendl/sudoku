@@ -3,6 +3,8 @@ package com.myfu.sudoku
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.core.view.children
@@ -11,7 +13,7 @@ import kotlinx.android.synthetic.main.view_grid.view.*
 
 class GridView : LinearLayout{
     private var grid: Grid = Grid()
-    private var cellsView: List<EditText>
+    private var cellsView: List<List<EditText>>
     @JvmOverloads
     constructor(
         context: Context,
@@ -21,30 +23,42 @@ class GridView : LinearLayout{
 
     init {
         LayoutInflater.from(context).inflate(R.layout.view_grid, this, true)
-        cellsView = getCellsView()
+        cellsView = getCellsView() as List<List<EditText>>
     }
 
-    private fun getCellsView (): List<EditText>  {
-        var gridSudokyLayout = grid_sudoku[0] as LinearLayout
-        var linesLayout = gridSudokyLayout.children.filter { view -> view is LinearLayout }.toList() as List<LinearLayout>
-        var blocksLayout = linesLayout.map { lineLayout -> lineLayout.children }.flatMap { linesLayout -> linesLayout.toList() }.filter { view -> view is LinearLayout }.toList() as List<LinearLayout>
-        var linesCellsLayout = blocksLayout.map {blockLayout -> blockLayout.children}.flatMap { linesLayout -> linesLayout.toList() }.filter { view -> view is LinearLayout }.toList() as List<LinearLayout>
-        return linesCellsLayout.map { lineCellLayout -> lineCellLayout.children }.flatMap { linesCellsLayout -> linesCellsLayout.toList() }.toList() as List<EditText>
+    private fun getGridView () : ViewGroup =
+        grid_sudoku[0] as ViewGroup
+
+    private fun getLinesBlockView() : List<ViewGroup>
+            = getGridView().children.filter { view -> view is LinearLayout }.toList() as List<ViewGroup>
+
+    private fun getBlocksView() : List<ViewGroup>
+            = getLinesBlockView().map { lineLayout -> lineLayout.children }.flatMap { linesLayout -> linesLayout.toList() }.filter { view -> view is LinearLayout }.toList() as List<ViewGroup>
+
+    private fun getLinesCellsView () : List<ViewGroup> {
+        var linesCellsLayout = getBlocksView().map {blockLayout -> blockLayout.children}.flatMap { linesLayout -> linesLayout.toList() }.filter { view -> view is LinearLayout }.toList() as List<LinearLayout>
+        var sortedLinesCellsLayout = ArrayList<LinearLayout>()
+        for (i in 0 until linesCellsLayout.size)
+            sortedLinesCellsLayout.add(linesCellsLayout[i%3*3+i/3+6*(i/9)])
+        return sortedLinesCellsLayout
+    }
+
+    private fun getCellsView (): List<List<View>>  {
+        var cellsEditText = getLinesCellsView () .map { lineCellLayout -> lineCellLayout.children }.flatMap { linesCellsLayout -> linesCellsLayout.toList() }.toList() as List<EditText>
+        var rowsEditText: ArrayList<ArrayList<EditText>> = arrayListOf()
+        for (i in 0 until 9) {
+            var rowEditText: ArrayList<EditText> = arrayListOf()
+            for (j in 0 until 9) rowEditText.add(cellsEditText[j + i*9])
+            rowsEditText.add(rowEditText)
+        }
+        return rowsEditText
     }
 
     private fun refreshGrid () {
-        var lines = grid.getLines()
-        for (i in 0..8 step 1) {
-            cellsView[0+i*3+i/3*18].setText(lines[0][i].value)
-            cellsView[1+i*3+i/3*18].setText(lines[1][i].value)
-            cellsView[2+i*3+i/3*18].setText(lines[2][i].value)
-            cellsView[9+i*3+i/3*18].setText(lines[3][i].value)
-            cellsView[10+i*3+i/3*18].setText(lines[4][i].value)
-            cellsView[11+i*3+i/3*18].setText(lines[5][i].value)
-            cellsView[18+i*3+i/3*18].setText(lines[6][i].value)
-            cellsView[19+i*3+i/3*18].setText(lines[7][i].value)
-            cellsView[20+i*3+i/3*18].setText(lines[8][i].value)
-        }
+        var lines = grid.getRows()
+        for (i in 0..8 step 1)
+            for (j in 0..8 step 1)
+                cellsView[i][j].setText(lines[j][i].value)
     }
 
     fun setGrid (grid: Grid) {
