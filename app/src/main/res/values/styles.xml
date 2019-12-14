@@ -14,4 +14,8 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+
+    <style name="BorderCell">
+        <item name="android:radius" ></item>
+    </style>
 </resources>
