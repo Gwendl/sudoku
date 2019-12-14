@@ -20,12 +20,12 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@android:color/black"/>
-        <include layout="@layout/view_box"></include>
+        <include android:id="@+id/block2" layout="@layout/view_box"></include>
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@android:color/black"/>
-        <include layout="@layout/view_box"></include>
+        <include android:id="@+id/block3" layout="@layout/view_box"></include>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
@@ -36,17 +36,17 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_weight="1">
-        <include layout="@layout/view_box"></include>
+        <include android:id="@+id/block4" layout="@layout/view_box"></include>
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@android:color/black"/>
-        <include layout="@layout/view_box"></include>
+        <include android:id="@+id/block5" layout="@layout/view_box"></include>
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@android:color/black"/>
-        <include layout="@layout/view_box"></include>
+        <include android:id="@+id/block6" layout="@layout/view_box"></include>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
@@ -57,17 +57,17 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_weight="1">
-        <include layout="@layout/view_box"></include>
+        <include android:id="@+id/block7" layout="@layout/view_box"></include>
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@android:color/black"/>
-        <include layout="@layout/view_box"></include>
+        <include android:id="@+id/block8" layout="@layout/view_box"></include>
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@android:color/black"/>
-        <include layout="@layout/view_box"></include>
+        <include android:id="@+id/block9" layout="@layout/view_box"></include>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
