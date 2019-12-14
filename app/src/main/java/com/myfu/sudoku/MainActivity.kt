@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        button.setOnClickListener{grid_sudoku.setGrid(Grid.fromCsv(getResources().getString(R.string.sudoku1)))}
+        load_button.setOnClickListener{grid_sudoku.setGrid(Grid.fromCsv(getResources().getString(R.string.sudoku1)))}
         val csv = Grid.fromCsv(getResources().getString(R.string.sudoku1)).getSquares()
     }
 

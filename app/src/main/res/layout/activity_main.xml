@@ -9,18 +9,46 @@
 
     <com.myfu.sudoku.GridView
         android:id="@+id/grid_sudoku"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="30dp"
         android:layout_weight="1">
     </com.myfu.sudoku.GridView>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:text="Remplir cellule vide"
-        android:id="@+id/button">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="8">
+        <Button
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Charger Grille"
+            android:id="@+id/load_button">
+        </Button>
+        <Button
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Scanner Grille"
+            android:id="@+id/scan_button">
+        </Button>
+        <Button
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Generer Grille"
+            android:id="@+id/generate_button">
+        </Button>
+        <Button
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Vérifier Grille"
+            android:id="@+id/check_button">
+        </Button>
+    </LinearLayout>
 
-    </Button>
 </LinearLayout>
