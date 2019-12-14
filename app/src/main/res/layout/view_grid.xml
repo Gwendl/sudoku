@@ -5,10 +5,6 @@
     android:orientation="vertical"
     android:id="@+id/grid_sudoku">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/black"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,20 +13,20 @@
         >
         <include android:id="@+id/block1" layout="@layout/view_box"></include>
         <View
-            android:layout_width="1dp"
+            android:layout_width="5dp"
             android:layout_height="match_parent"
-            android:background="@android:color/black"/>
+            android:background="@drawable/border_cells_2"/>
         <include android:id="@+id/block2" layout="@layout/view_box"></include>
         <View
-            android:layout_width="1dp"
+            android:layout_width="5dp"
             android:layout_height="match_parent"
-            android:background="@android:color/black"/>
+            android:background="@drawable/border_cells_2"/>
         <include android:id="@+id/block3" layout="@layout/view_box"></include>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/black"/>
+        android:layout_height="5dp"
+        android:background="@drawable/border_cells_2"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -38,20 +34,20 @@
         android:layout_weight="1">
         <include android:id="@+id/block4" layout="@layout/view_box"></include>
         <View
-            android:layout_width="1dp"
+            android:layout_width="5dp"
             android:layout_height="match_parent"
-            android:background="@android:color/black"/>
+            android:background="@drawable/border_cells_2"/>
         <include android:id="@+id/block5" layout="@layout/view_box"></include>
         <View
-            android:layout_width="1dp"
+            android:layout_width="5dp"
             android:layout_height="match_parent"
-            android:background="@android:color/black"/>
+            android:background="@drawable/border_cells_2"/>
         <include android:id="@+id/block6" layout="@layout/view_box"></include>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/black"/>
+        android:layout_height="5dp"
+        android:background="@drawable/border_cells_2"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -59,18 +55,14 @@
         android:layout_weight="1">
         <include android:id="@+id/block7" layout="@layout/view_box"></include>
         <View
-            android:layout_width="1dp"
+            android:layout_width="5dp"
             android:layout_height="match_parent"
-            android:background="@android:color/black"/>
+            android:background="@drawable/border_cells_2"/>
         <include android:id="@+id/block8" layout="@layout/view_box"></include>
         <View
-            android:layout_width="1dp"
+            android:layout_width="5dp"
             android:layout_height="match_parent"
-            android:background="@android:color/black"/>
+            android:background="@drawable/border_cells_2"/>
         <include android:id="@+id/block9" layout="@layout/view_box"></include>
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/black"/>
 </LinearLayout>

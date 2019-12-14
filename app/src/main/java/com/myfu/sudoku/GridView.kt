@@ -1,6 +1,7 @@
 package com.myfu.sudoku
 
 import android.content.Context
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -57,8 +58,20 @@ class GridView : LinearLayout{
     private fun refreshGrid () {
         var lines = grid.getRows()
         for (i in 0..8 step 1)
-            for (j in 0..8 step 1)
-                cellsView[i][j].setText(lines[j][i].value)
+            for (j in 0..8 step 1) {
+                var value = lines[j][i].value
+                when (value) {
+                    "_" -> cellsView[i][j].setText("")
+                    else -> {
+                        cellsView[i][j].setText(value)
+                        cellsView[i][j].setTextColor(Color.GRAY)
+                        cellsView[i][j].isFocusableInTouchMode = false
+                    }
+
+                }
+
+            }
+
     }
 
     fun setGrid (grid: Grid) {

@@ -3,9 +3,12 @@
     style="@android:style/Widget.DeviceDefault.EditText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="5dp"
     android:layout_weight="1"
     android:gravity="center"
     android:inputType="number"
     android:textSize="23sp"
     android:maxLength="1"
-    android:background="@drawable/border_cells"></EditText>
+    android:textColor="@android:color/white"
+    android:textStyle="bold"
+    android:background="@drawable/border_cells_2"></EditText>
