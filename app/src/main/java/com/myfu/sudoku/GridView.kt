@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.core.view.children
 import androidx.core.view.get
 import kotlinx.android.synthetic.main.view_grid.view.*
@@ -55,6 +56,11 @@ class GridView : LinearLayout{
         return rowsEditText
     }
 
+    private fun disableCell (cellsView: TextView) {
+        cellsView.setTextColor(Color.GRAY)
+        cellsView.isFocusableInTouchMode = false
+    }
+
     private fun refreshGrid () {
         var lines = grid.getRows()
         for (i in 0..8 step 1)
@@ -64,8 +70,7 @@ class GridView : LinearLayout{
                     "_" -> cellsView[i][j].setText("")
                     else -> {
                         cellsView[i][j].setText(value)
-                        cellsView[i][j].setTextColor(Color.GRAY)
-                        cellsView[i][j].isFocusableInTouchMode = false
+                        disableCell(cellsView[i][j])
                     }
 
                 }
